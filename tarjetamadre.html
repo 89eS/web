@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Madre</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tarjeta Madre</h1>
+    </header>
+
+    <main>
+        <h2>¿Qué es Tarjeta Madre?</h2>
+        <p>La tarjeta madre, es la placa principal en la estructura interna del computador donde se encuentran los circuitos electrónicos, el procesador, las memorias y las conexiones principales. Al referirse a la placa base, se habla de un tipo de tecnología que ha estado presente desde el inicio de la historia de las computadoras hasta la actualidad. En ella se conectan todos los componentes del computador teniendo como función principal controlar todos los elementos del servidor para brindarle un funcionamiento óptimo al usuario. De ella depende que dichos componentes estén bien comunicados unos de otros para garantizar el funcionamiento del sistema.</p>
+
+  <h3>Componentes Principales</h3>
+        <p>Algunos de los componentes más comunes son:</p>
+        <ul>
+            <li><strong>Chipset:</strong> Es fundamental para gestionar el flujo de datos entre el procesador, la RAM y los dispositivos de almacenamiento.</li>
+            <li><strong>Ranuras de expansión: </strong> Permiten mejorar o añadir funcionalidades a la computadora con tarjetas adicionales.</li>
+            <li><strong>BIOS/UEFI: </strong>  Inicializa los componentes del sistema al encenderse y permite configurar opciones básicas.</li>
+            <li><strong>Puertos USB y otros conectores:</strong> Proveen conexiones para dispositivos externos, como teclados, ratones y unidades USB.</li>
+            <li><strong>Conectores de audio y red:</strong> Permiten conectar la tarjeta madre a dispositivos de sonido y redes de comunicación.</li>
+            <li><strong>Conectores SATA y NVMe:</strong> Sirven para conectar dispositivos de almacenamiento, como discos duros y unidades de estado sólido.</li>
+        </ul>
+
+    <style>
+        /* Estilos del carrusel */
+        .carousel {
+            position: relative;
+            max-width: 280px; /* Ajusta el tamaño según lo necesites */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .carousel-image {
+            width: 100%;
+            display: none; /* Oculta las imágenes por defecto */
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="carousel">
+        <img class="carousel-image" src="imagenes/madre.gif" alt="madre">
+        <img class="carousel-image" src="imagenes/tarjeta.gif" alt="tarjeta">
+        <img class="carousel-image" src="imagenes/tarjeta madre.jpeg" alt="tarjeta madre">
+        <!-- Puedes añadir más imágenes según sea necesario -->
+        <button class="carousel-button prev" onclick="prevImage()">❮</button>
+        <button class="carousel-button next" onclick="nextImage()">❯</button>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll(".carousel-image");
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? "block" : "none";
+            });
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        // Inicializa el carrusel mostrando la primera imagen
+        showImage(currentImageIndex);
+
+        // Cambia automáticamente de imagen cada 3 segundos
+        setInterval(nextImage, 3000);
+    </script>
+
+</body>
+</html>
+    </main>
+
+<audio controls autoplay>
+  <source src="Audio/tarjeta.M4A" type="audio/mpeg">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+
+    <footer>
+        <a href="index.html">Volver al Inicio</a>
+    </footer>
+</body>
+</html>

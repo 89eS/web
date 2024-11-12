@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad de Arrastrar y Soltar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para la actividad de arrastrar y soltar */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 50px;
+            width: 80%;
+        }
+
+        .dropzone {
+            border: 2px dashed #999;
+            padding: 20px;
+            width: 200px;
+            min-height: 150px;
+            margin: 10px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        .draggable-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);  /* 4 columnas */
+            gap: 20px;
+            align-items: flex-start;
+            margin-left: 50px;
+        }
+
+        .draggable {
+            padding: 5px;
+            margin: 5px;
+            cursor: move;
+            display: inline-block;
+            text-align: center;
+            width: 100px;
+            margin-bottom: 10px;
+            opacity: 1;
+        }
+
+        .draggable img {
+            width: 100px;
+            height: 100px;
+        }
+
+        #resultadoFinal {
+            width: 6cm;
+            padding: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #333;
+            display: inline-block;
+        }
+
+        .aciertos {
+            color: blue;
+        }
+
+        .errores {
+            color: blue;
+        }
+
+        .numero {
+            color: black;
+        }
+
+        .erroneo {
+            border: 3px solid red; /* Borde rojo en caso de error */
+        }
+
+        #retryButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #retryButton:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1> Arrastrar y Soltar Componentes de Computadora</h1>
+    </header>
+    <main>
+        <!-- Actividad de Arrastrar y Soltar -->
+        <section id="actividad-drag-drop">
+            <h2>Clasifica los elementos en Hardware y Software</h2>
+            <p>Arrastra cada elemento a la categoría correcta.</p>
+
+            <div class="container">
+                <!-- Zonas de categorías -->
+                <div class="dropzone" id="hardware" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <h3>Hardware</h3>
+                </div>
+                <div class="dropzone" id="software" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <h3>Software</h3>
+                </div>
+
+                <!-- Elementos arrastrables en columnas de 4 -->
+                <div class="draggable-container">
+                    <div class="draggable" id="cpu" draggable="true" ondragstart="drag(event)">
+                        <img src="imagenes/C1.jpeg" alt="CPU"><br>CPU
+                    </div>
+                    <div class="draggable" id="ram" draggable="true" ondragstart="drag(event)">
+                        <img src="imagenes/R2.jpeg" alt="RAM"><br>RAM
+                    </div>
+                     <div class="draggable" id="drive" draggable="true" ondragstart="drag(event)">
+                        <img src="imagenes/drive.jpg" alt="Drive"><br>Drive
+                    </div>
+                    <div class="draggable" id="navegadores" draggable="true" ondragstart="drag(event)">
+                        <img src="imagenes/nave.jpg" alt="Navegadores"><br>Navegadores
+                    </div>
+                    <div class="draggable" id="linux" draggable="true" ondragstart="drag(event)">
+                        <img src="imagenes/linux.jpg" alt="Linux"><br>Linux
+                    </div>
+                    <div class="draggable" id="office" draggable="true" ondragstart="drag(event)">
+                        <img src="imagenes/ofis.jpg" alt="Office"><br>Office
+                    </div>
+                    <div class="draggable" id="teclado" draggable="true" ondragstart="drag(event)">
+                        <img src="imagenes/tecla.jpg" alt="Teclado"><br>Teclado
+                    </div>
+                    <div class="draggable" id="puertos" draggable="true" ondragstart="drag(event)">
+                        <img src="imagenes/puertos.jpg" alt="Puertos USB"><br>Puertos USB
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Botón para verificar respuestas -->
+            <button onclick="verificarRespuestas()">Verificar Respuestas</button>
+
+            <!-- Cuadro de resultados -->
+            <div id="resultadoFinal"></div>
+
+            <!-- Botón de "Intentarlo de nuevo" -->
+            <button id="retryButton" onclick="reiniciarActividad()">Intentarlo de nuevo</button>
+        </section>
+    </main>
+
+    <script>
+        // Funciones para arrastrar y soltar
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const element = document.getElementById(data);
+
+            // Colocar la imagen en la zona al soltarla
+            if (ev.target.className === "dropzone") {
+                ev.target.appendChild(element);
+                element.style.opacity = "1";  // Asegura que la imagen se vea
+            }
+        }
+
+        // Función para verificar respuestas
+        function verificarRespuestas() {
+            const resultadoFinal = document.getElementById("resultadoFinal");
+            const hardwareZone = document.getElementById("hardware");
+            const softwareZone = document.getElementById("software");
+
+            // Respuestas correctas
+            const hardwareItems = ["cpu", "ram", "puertos", "teclado"];
+            const softwareItems = ["office", "navegadores", "linux", "drive"];
+
+
+            // Obtener IDs de los elementos en cada zona
+            const hardwareElements = Array.from(hardwareZone.children).map(el => el.id);
+            const softwareElements = Array.from(softwareZone.children).map(el => el.id);
+
+            // Calcular aciertos y errores
+            let aciertos = 0;
+            let errores = 0;
+
+            // Eliminar cualquier borde rojo previo
+            document.querySelectorAll('.draggable').forEach(item => {
+                item.classList.remove('erroneo');
+            });
+
+            // Verificar hardware
+            hardwareItems.forEach(item => {
+                const element = document.getElementById(item);
+                if (!hardwareElements.includes(item)) {
+                    element.classList.add('erroneo'); // Aplica borde rojo en caso de error
+                    errores++;
+                } else {
+                    aciertos++;
+                }
+            });
+
+            // Verificar software
+            softwareItems.forEach(item => {
+                const element = document.getElementById(item);
+                if (!softwareElements.includes(item)) {
+                    element.classList.add('erroneo'); // Aplica borde rojo en caso de error
+                    errores++;
+                } else {
+                    aciertos++;
+                }
+            });
+
+            // Mostrar el resultado
+            resultadoFinal.innerHTML = `Aciertos: <span class="aciertos">` + aciertos + `</span> | Errores: <span class="errores">` + errores + `</span>`;
+
+            if (aciertos === (hardwareItems.length + softwareItems.length)) {
+                resultadoFinal.style.color = "green";
+                resultadoFinal.innerText += " - ¡FELICIDADES! Todos los elementos están en la categoría adecuada.";
+            } else {
+                resultadoFinal.style.color = "red";
+                resultadoFinal.innerText += " - Algunos elementos no están en la categoría correcta. Dar clic boton Inténtalo de nuevo.";
+            }
+        }
+
+        // Función para reiniciar la actividad
+        function reiniciarActividad() {
+            const hardwareZone = document.getElementById("hardware");
+            const softwareZone = document.getElementById("software");
+            const draggableItems = document.querySelectorAll('.draggable');
+
+            // Limpiar las zonas de destino
+            hardwareZone.innerHTML = "<h3>Hardware</h3>";
+            softwareZone.innerHTML = "<h3>Software</h3>";
+
+            // Devolver los elementos arrastrables a su lugar original
+            draggableItems.forEach(item => {
+                item.style.opacity = "1"; // Asegurar que las imágenes se vean
+                item.classList.remove('erroneo'); // Eliminar borde rojo
+                document.querySelector('.draggable-container').appendChild(item);
+            });
+
+            // Limpiar el cuadro de resultados
+            document.getElementById("resultadoFinal").innerHTML = "";
+        }
+    </script>
+
+    <footer>
+        <a href="index.html">Volver al Inicio</a>
+    </footer>
+
+</body>
+</html>

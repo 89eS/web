@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes de una Computadora</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="imagenes/logo.jpg" alt="Logotipo de la Página" class="logo">
+        <h1>Componentes de una Computadora</h1>
+        <p>Aprende sobre los componentes esenciales de una computadora y su funcionamiento.</p>
+
+  <!-- Botón para alternar modo oscuro/claro -->
+        <button onclick="toggleModoOscuro()" class="dynamic-btn">Modo Oscuro/Claro</button>
+    </header>
+
+    <!-- Menú de Navegación -->
+    <nav>
+        <!-- Menú desplegable para Hardware -->
+        <div class="dropdown">
+            <!-- Imagen encima del botón de hardware -->
+            <img src="imagenes/hardware.jpg" alt="Imagen de Hardware" class="dropdown-image">
+            <button class="dropdown-btn">Componentes de Hardware</button>
+            <div class="dropdown-content">
+                <a href="procesador.html">Procesador (CPU)</a>
+                <a href="memoria.html">Memoria RAM</a>
+                <a href="almacenamiento.html">Almacenamiento</a>
+                <a href="tarjetamadre.html">Tarjeta Madre</a>
+                <a href="fuente.html">Fuente de Poder</a>
+            </div>
+        </div>
+
+        <!-- Menú desplegable para Software -->
+        <div class="dropdown">
+            <!-- Imagen encima del botón de software -->
+            <img src="imagenes/software.jpg" alt="Imagen de Software" class="dropdown-image">
+            <button class="dropdown-btn">Componentes de Software</button>
+            <div class="dropdown-content">
+                <a href="sistema_operativo.html">Sistema Operativo</a>
+                <a href="software_aplicacion.html">Software de Aplicación</a>
+                <a href="software_programacion.html">Software de Programación</a>
+                <a href="software_control.html">Software de Control</a>
+            </div>
+        </div>
+    </nav>
+
+<div class="menu">
+ <!-- Imagen encima del botón de Actividades -->
+           <img src="imagenes/act.gif" alt="Imagen de Actividades" class="dropdown-image">
+    <button class="menu-principal">Actividades</button>
+    <div class="menu-desplegable">
+        <a href="Actividad 1.html">Actividad 1</a>
+        <a href="Actividad 2.html">Actividad 2</a>
+    </div>
+</div>
+
+
+ <!-- Script para Modo Oscuro y Quiz Interactivo -->
+    <script>
+        function toggleModoOscuro() {
+            document.body.classList.toggle("modo-oscuro");
+        }
+
+        function mostrarRespuesta(opcion) {
+            const respuesta = document.getElementById("respuesta");
+            respuesta.style.display = "block";
+            if (opcion === 'correcto') {
+                respuesta.innerText = '¡Correcto! La CPU procesa instrucciones.';
+                respuesta.style.color = 'green';
+            } else {
+                respuesta.innerText = 'Intenta nuevamente';
+                respuesta.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
+
+<body>
+    <!-- Otros contenidos de tu página -->
+    <img src="imagenes/menu.gif" alt="Descripción de la imagen" class="imagen-superior-derecha">
+    <!-- Otros contenidos de tu página -->
+</body>
+
+
+    <footer>
+        <p>&copy; 2024 Página Educativa sobre Componentes de Computadora</p>
+    </footer>
+</body>
+</html>

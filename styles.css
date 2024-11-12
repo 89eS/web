@@ -1,0 +1,287 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* Navegación */
+nav {
+    margin: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0056b3;
+    font-weight: bold;
+}
+
+/* Botón para regresar al inicio */
+footer a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos para las imágenes de los componentes */
+.imagen-componente {
+    width: 300px; /* Ajusta el ancho según lo necesites */
+    display: block;
+    margin: 20px auto; /* Centra la imagen */
+    border: 2px solid #0056b3; /* Borde azul */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+
+/* Estilos para el logotipo */
+.logo {
+    width: 100px; /* Ajusta el tamaño según prefieras */
+    display: block;
+    margin: 0 auto 10px; /* Centra el logotipo y añade margen inferior */
+}
+
+
+/* Estilos para el botón de hardware con menú desplegable */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f4f4f4;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Botón de Software */
+.button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+
+/* Estilos para el botón de hardware con menú desplegable */
+.dropdown {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+
+.dropdown-btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f4f4f4;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* Estilo de las imágenes sobre los botones desplegables */
+.dropdown-image {
+    width: 150px; /* Ajusta el tamaño según sea necesario */
+    display: block;
+    margin: 0 auto 10px; /* Centra la imagen y añade margen inferior */
+    border-radius: 5px; /* Opcional: esquinas redondeadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra */
+}
+
+
+/* Estilo para el modo oscuro */
+.modo-oscuro {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+
+
+/* Estilos para el contenido desplegable */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px; /* Ancho mínimo para el dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 10px; /* Espaciado para el contenido del dropdown */
+}
+
+/* Estilos para el contenedor del menú */
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo para el botón principal del menú */
+.menu-principal {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilos para el contenido del menú desplegable */
+.menu-desplegable {
+    display: none; /* Ocultar el menú inicialmente */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Estilos para los enlaces dentro del menú desplegable */
+.menu-desplegable a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Cambia el color de fondo al pasar el ratón por encima de los enlaces */
+.menu-desplegable a:hover {
+    background-color: #ddd;
+}
+
+
+
+/* Mostrar el menú desplegable cuando el usuario da clic en boton con el ratón por encima */
+.menu:hover .menu-desplegable {
+    display: block;
+}
+
+
+
+/* Posicionar el botón de actividades en el centro superior izquierda */
+.menu {
+    position:absolute;
+    top: 20px; /* Ajusta este valor según sea necesario */
+    left: 20px; /* Ajusta este valor según sea necesario */
+    display: inline-block;
+    z-index: 10; /* Asegura que esté encima de otros elementos */
+}
+
+/* Botón principal del menú "Actividades" */
+.menu-principal {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Menú desplegable */
+.menu-desplegable {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Mostrar el menú desplegable cuando el usuario pasa el ratón */
+.menu:hover .menu-desplegable {
+    display: block;
+}
+
+.imagen-superior-derecha {
+    position: fixed; /* Fija la imagen en la pantalla */
+    top: 20px; /* Espacio desde la parte superior */
+    right: 20px; /* Espacio desde la parte derecha */
+    width: 200px; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    z-index: 20; /* Asegura que esté por encima de otros elementos */
+}
+
+

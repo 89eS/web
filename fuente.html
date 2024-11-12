@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuente de Poder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Fuente de Poder</h1>
+    </header>
+
+    <main>
+        <h2>¿Qué la Fuente de Poder?</h2>
+        <p>Una fuente de poder, también conocido en el ámbito de la informática como “fuente de alimentación”, es un componente ubicado dentro del gabinete de tu PC, muy próximo a donde está ubicado tu CPU.
+
+Este dispositivo se utiliza para suministrar la energía eléctrica para que el computador funcione, pues como todos sabemos, sin energía no podría siquiera iniciarse.</p>
+
+  <style>
+        /* Estilos del carrusel */
+        .carousel {
+            position: relative;
+            max-width: 300px; /* Ajusta el tamaño según lo necesites */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .carousel-image {
+            width: 100%;
+            display: none; /* Oculta las imágenes por defecto */
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="carousel">
+        <img class="carousel-image" src="imagenes/fuente.jpg" alt="fuente">
+        <img class="carousel-image" src="imagenes/fuente de poder.jpeg" alt="fuente de poder">
+        <!-- Puedes añadir más imágenes según sea necesario -->
+        <button class="carousel-button prev" onclick="prevImage()">❮</button>
+        <button class="carousel-button next" onclick="nextImage()">❯</button>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll(".carousel-image");
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? "block" : "none";
+            });
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        // Inicializa el carrusel mostrando la primera imagen
+        showImage(currentImageIndex);
+
+        // Cambia automáticamente de imagen cada 3 segundos
+        setInterval(nextImage, 3000);
+    </script>
+
+</body>
+</html>
+
+    </main>
+
+<audio controls autoplay>
+  <source src="Audio/fuente.M4A" type="audio/mpeg">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+
+    <footer>
+        <a href="index.html">Volver al Inicio</a>
+    </footer>
+</body>
+</html>
